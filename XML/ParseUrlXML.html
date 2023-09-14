@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Reads the XML data using JavaScript</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <style>
+    tr:nth-child(even) {
+      background-color: #469536;
+    }
+
+    table,
+    td,
+    th {
+      border: 1px solid black;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th {
+      background-color: #b7d5ac;
+    }
+  </style>
+</head>
+
+<body>
+
+  <button type="button" onclick="loadXMLDoc()">
+    Get
+  </button>
+
+  <br><br>
+  <table id="idss" border="1">
+    <tr>
+      <th>to</th>
+      <th>from</th>
+      <th>heading</th>
+      <th>body</th>
+    </tr>
+  </table>
+
+
+
+  <script type="text/javascript">
+    function loadXMLDoc() {
+      var table = "";
+      $.ajax({
+        type: "GET",
+        url: "https://raw.githubusercontent.com/serkankumru/repo-3/main/messages.xml",
+        dataType: "xml",
+        success: function (xml) {
+          $(xml).find('messages').children('note').each(function () {
+
+            var to = $(this).find('to').text();
+            var from = $(this).find('from').text();
+            var heading = $(this).find('heading').text();
+            var body = $(this).find('body').text();
+
+            table = "<tr><td>" + to + "</td><td>" + from + "</td><td>" + heading + "</td><td>" + body + "</td></tr>";
+
+            $("#idss").append(table);
+          });
+        },
+        error: function () {
+          $("<p></p>").html('An error occurred while processing XML file.').prependTo("#asd");
+        }
+      });
+    }
+
+  </script>
+</body>
+
+</html>

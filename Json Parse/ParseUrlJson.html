@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <button id="vericek">
+        Verileri Çek
+    </button>
+    <table id="liste" border=1>
+        <tr>
+            <th>index</th>
+            <th>id</th>
+            <th>title</th>
+            <th>body</th>
+        </tr>
+
+    </table>
+    <script>
+        $("#vericek").click(function () {
+            loadJSONFile("https://jsonplaceholder.typicode.com/posts", myData, 'jsonp');
+        });
+        // loadJSON method to open the JSON file.
+        function loadJSONFile(path, success, error) {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        success(JSON.parse(xhr.responseText));
+                    }
+                    else {
+                        error(xhr);
+                    }
+                }
+            };
+            xhr.open('GET', path, true);
+            xhr.send();
+        }
+
+        function myData(data) {
+            data.forEach(function (nesne, index) {
+
+                let satir = $("<tr>") //<tr> elementi oluşturur
+                let hucre1 = $("<td>").text(index)
+                let hucre2 = $("<td>").text(nesne.id)
+                let hucre3 = $("<td>").text(nesne.title)
+                let hucre4 = $("<td>").text(nesne.body)
+
+                satir.append(hucre1) //hücre1 i satir içine ekler
+                satir.append(hucre2) //hücre2 yi satir içine ekler
+                satir.append(hucre3)//hücre3 ü satir içine ekler
+                satir.append(hucre4)//hücre3 ü satir içine ekler
+
+                $("#liste").append(satir) //liste içine satir elementini ekler.
+            })
+        }
+    </script>
+</body>
+
+</html>

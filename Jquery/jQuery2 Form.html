@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            margin: 20px;
+            font-size: 18px;
+        }
+
+        button {
+            width: 110px;
+            padding: 10px;
+            margin-right: 12px;
+            margin-bottom: 12px;
+            background-color: tomato;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        p {
+            font-size: 22px;
+        }
+
+        input {
+            padding: 5px;
+            font-size: 20px;
+        }
+    </style>
+    <script>
+
+        $(function () {
+            var icerik = $("#icerik");
+            $("#icerik").keyup(function () {
+                $("#mesaj").text("Mesaj:" + icerik.val());
+            });
+
+            $("#hesapla").click(function () {
+                var sy1 = parseInt($("#sy1").val());
+                var sy2 = parseInt($("#sy2").val());
+                var toplam = 0;
+                toplam = sy1 + sy2;
+                $(".sonuc").text(toplam);
+            });
+
+            $("#hover").hover(function () {
+                $(this).css("background-color", "#E7512F")
+            },
+                function () {
+                    $(this).css("background-color", "#007BFF")
+                });
+
+            $("#submit").submit(function () {
+                alert("Form gönderildi.");
+            });
+
+            $("#change").change(function () {
+                alert("change olayı gerçekleşti.")
+            });
+
+            $("#focus-blur").focus(function () {
+                $(this).css("background-color", "#E7512F");
+            }).blur(function () {
+                $(this).css("background-color", "#FFFFFF");
+            });
+
+            $("#select").select(function () {
+                alert("select olayı gerçekleşti.")
+            })
+                .scroll(function () {
+                    $(this).append(" scroll'u hareket ettiriyorsunuz! </br>");
+                });
+        });
+
+
+        $(document).ready(function () {
+
+            $("#text-get").click(function () {
+                var text = $("p").text();
+                alert(text);
+            });
+
+            $("#html-get").click(function () {
+                var html = $("p").html();
+                alert(html);
+            });
+
+            $("#val-get").click(function () {
+                var value = $("input").val()
+                alert(value);
+            });
+
+            $("#text-set").click(function () {
+                $("p").text("Hello World");
+            });
+
+            $("#html-set").click(function () {
+                $("p").html("<h2><i>Hello World</i></h2>");
+            });
+
+            $("#val-set").click(function () {
+                var value = "Javascript";
+                $("input").val(value);
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+    <input type="text" name="icerik" id="icerik">
+    <h1 id="mesaj">Mesaj: </h1>
+
+    <button id="hover">hover olayı</button>
+    <table>
+        <tr>
+            <td>sayı 1</td>
+            <td><input type="text" id="sy1"></td>
+        </tr>
+        <tr>
+            <td>sayı 2</td>
+            <td><input type="text" id="sy2"></td>
+        </tr>
+        <tr>
+            <td><input type="button" id="hesapla" value="Topla"></td>
+            <td><text class="sonuc"></text>
+            <td></td>
+        </tr>
+    </table>
+    <form id="submit">
+        <input type="text" placeholder="submit olayı">
+        <input type="text" id="focus-blur" placeholder="blur olayı">
+        <select id="change">
+            <option>change olayı</option>
+            <option>İstanbul</option>
+            <option>Ankara</option>
+            <option>İzmir</option>
+        </select>
+        <button type="submit">Gönder</button>
+    </form>
+
+
+
+    <textarea id="select" cols="30" rows="8">
+    select olayı
+ 
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa a totam perferendis labore aut perspiciatis provident voluptate ut optio soluta accusamus, tempore tempora harum, eaque fuga vel dolores aspernatur.
+</textarea>
+<br><br>
+
+
+
+    <button id="text-get">Text() - Get</button>
+    <button id="html-get">Html() - Get</button>
+    <button id="val-get">Val() - Get</button>
+    <button id="text-set">Text() - Set</button>
+    <button id="html-set">Html() - Set</button>
+    <button id="val-set">Val() - Set</button>
+
+    <p>Lorem <b>ipsum</b> dolor <i>sit</i> amet.</p>
+
+    <input type="text" value="jQuery">
+</body>
+
+</html>

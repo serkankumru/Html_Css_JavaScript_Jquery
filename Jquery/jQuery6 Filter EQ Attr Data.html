@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <style>
+        button {
+            padding: 10px;
+            margin-right: 8px;
+            margin-bottom: 18px;
+            background-color: tomato;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+
+            $("#filter").click(function () {
+                $("p").filter(".custom").css("background-color", "lightblue");
+            });
+
+            $("#eq2").click(function () {
+                $("p").eq(2).css("background-color", "yellow");
+            });
+
+            $("#eq-3").click(function () {
+                $("p").eq(-3).css("background-color", "red");
+            });
+
+
+
+            $("#attr-get").click(function () {
+                var href = $("a").attr("href");
+                alert(href);
+            });
+
+            $("#attr-set").click(function () {
+                $("a").attr("href", "https://www.yandex.com.tr/");
+            });
+
+            $("#remove-attr").click(function () {
+                $("p").removeAttr("style");
+            });
+
+
+
+            $("#data").click(function () {
+                var data = $("#del").data("product");
+                alert(data);
+            });
+
+            $("#data-set").click(function () {
+                $("#del").data("product", "Computer");
+            });
+
+            $("#data-remove").click(function () {
+                $("#del").removeData("product");
+            });
+
+
+            category = new Object();
+            category.name = "Computer";
+            category.stock = "100";
+
+            $("#data-object-set").click(function () {
+                $("#del").data(category);
+            });
+
+            $("#data-object").click(function () {
+                var name = $("#del").data("name");
+                var stock = $("#del").data("stock");
+                alert("Category : " + name + " ------ " + "Stock : " + stock);
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button id="filter">filter(".custom")</button>
+
+    <button id="eq2">eq(2)</button>
+    <button id="eq-3">eq(-3)</button>
+
+    <p>Lorem ipsum dolor.</p>
+    <p>Lorem ipsum dolor. (index 0, index -4)</p>
+    <p class="custom">Lorem ipsum dolor. (index 1, index -3)</p>
+    <p class="custom">Lorem ipsum dolor. (index 2, index -2)</p>
+    <p>Lorem ipsum dolor. (index 3, index -1)</p>
+    <p>Lorem ipsum dolor.</p>
+
+
+    <button id="attr-get">a etiketinin href degerini goster</button>
+    <button id="attr-set">a etiketinin href degerini degistir</button>
+    <button id="remove-attr">p etiketinin style niteligini sil</button>
+
+    <p style="font-size: 24px;color:blueviolet;font-weight: bold">Lorem ipsum dolor.</p>
+
+    <a href="https://www.google.com.tr/">Google</a>
+
+    <br><br>
+    <button id="data">Data</button>
+    <button id="data-set">Data Set</button>
+    <button id="data-remove">Data Remove</button>
+    <button id="data-object-set">Data Object Set</button>
+    <button id="data-object">Data Object</button>
+
+    <br>
+    <button id="del">Delete</button>
+
+</body>
+
+
+
+</html>

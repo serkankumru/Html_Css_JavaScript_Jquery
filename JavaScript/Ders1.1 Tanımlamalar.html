@@ -1,0 +1,58 @@
+<html>
+<script>
+    document.write("Merhaba ");
+    document.write("Son okunma tarihi" + document.lastModified);
+    document.write("<h1>This is a heading</h1>");
+    document.write("<p>This is a paragraph.</p>");
+    document.write("<p>This is anotherparagraph.</p>");
+    document.write("Hello"); // Write "Hello"
+    document.write("!"); // Write “!"
+
+    var x;
+    x = 5 + 5;
+    document.write(x + "<br />");
+    x = "5" + "5";
+    document.write(x + "<br />");
+    x = 5 + "5";
+    document.write(x + "<br />");
+    x = "5" + 5;
+    document.write(x + "<br />");
+</script>
+
+<body>
+    <h1>My First JavaScript</h1>
+    <p>The variables x, y, and z are assigned the values 5, 6, and 11:</p>
+    <p id="demo"></p>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+    <p id="demo4"></p>
+    <p id="demo5"></p>
+    <p id="demo6"></p>
+    <p id="demo7"></p>
+    <p id="demo8"></p>
+    <script>
+        var x = 5;
+        var y = 6;
+        var z = x + y;
+        var q = "5" + 2 + 3;
+        var a = 10;
+        a -= 5;//*,-,+,/,%
+        document.getElementById("demo").innerHTML = z;
+        document.getElementById("demo2").innerHTML = 10.50;//decimal
+        document.getElementById("demo3").innerHTML = 'John Doe';//string
+        document.getElementById("demo4").innerHTML = 5 * 10;//değer hesaplama
+        document.getElementById("demo5").innerHTML = q;
+        document.getElementById("demo6").innerHTML = a;
+
+        var txt1 = "What a very";
+        var txt2 = "nice day";
+        document.getElementById("demo7").innerHTML = txt1 + " " + txt2;
+
+
+        var x = "John"; // x is a string
+        var y = new String("John"); // y is an object
+        document.getElementById("demo8").innerHTML = typeof x + "<br>" + typeof y;
+    </script>
+</body>
+
+</html>

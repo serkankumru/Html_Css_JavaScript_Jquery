@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <style>
+        #to-array,
+        #to-each,
+        #replace-all,
+        #replace-with,
+        #to-wrap,
+        #clone {
+            padding: 10px;
+            margin-right: 8px;
+            margin-bottom: 18px;
+            background-color: tomato;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #box {
+            border: 1px solid black;
+            width: 180px;
+            padding: 20px;
+        }
+
+        .btn {
+            border: none;
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 10px;
+            background-color: darkgrey;
+            color: #fff;
+        }
+
+        button {
+            padding: 10px;
+            margin-right: 8px;
+            margin-bottom: 18px;
+            background-color: cornflowerblue;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            $("#to-array").click(function () {
+                var array = $("#box button").toArray();
+                for (i = 0; i < array.length; i++) {
+                    alert(array[i].innerHTML);
+                }
+            });
+
+
+            $("#to-each").click(function () {
+                $("#box button").each(function () {
+                    var text = $(this).text();
+                    alert(text);
+                });
+            });
+
+            $("#box button").click(function () {
+                var result = $(this).index();
+                alert(result);
+            });
+            $("#replace-all").click(function () {
+                $("<h3>Tüm p etiketleri h3 etiketi ile değiştirildi.</h3>").replaceAll("p");
+            });
+            $("#replace-with").click(function () {
+                $("h3").replaceWith("<p>h3 etiketi p etiketi ile değiştirildi.</p>");
+            });
+
+            $("#to-wrap").click(function () {
+                //$("p").wrap('<div></div>');// p etiketlerini ayrı ayrı div etiketi içerisine almış olduk.
+                $("p").wrapAll('<div></div>');
+                //$("p").unwrap();//seçmiş olduğumuz etiketin ebeveyn etiketini siler.
+                //$("p").wrapInner("<b><i></i></b>"); Son olarak wrapInner metodu ise seçmiş olduğumuz etiketin içerisine yeni etiketler eklememizi sağlar.
+            });
+
+            $("#clone").click(function () {
+                $("p:first").clone().appendTo("body");
+            });
+
+
+            $("#btn-1").click(function () {
+                var result = $("p").hasClass("title");
+                alert(result);
+            });
+
+            $("#btn-2").click(function () {
+                var result = $("p").hasClass("container");
+                alert(result);
+            });
+
+
+            $("#slice-1").click(function () {
+                $("p").slice(2).css("background-color", "lightblue");
+            });
+
+            $("#slice-2").click(function () {
+                $("p").slice(1, 4).css("font-size", "30px");
+            });
+
+
+        });
+    </script>
+</head>
+
+<body>
+    <button id="clone">clone</button>
+    <button id="replace-all">replaceAll</button>
+    <button id="replace-with">replaceWith</button>
+    <button id="to-array">toArray</button>
+    <button id="to-each">each</button>
+    <button id="to-wrap">Wrap</button>
+    <br>
+    <div id="box">
+        <button class="btn">Tıkla - index (0)</button>
+        <button class="btn">Tıkla - index (1)</button>
+        <button class="btn">Tıkla - index (2)</button>
+    </div>
+
+    <h3>Lorem ipsum dolor sit amet.</h3>
+    <h3>Lorem ipsum dolor sit amet.</h3>
+    <p>Lorem ipsum dolor.</p>
+
+    <button id="btn-1">p etiketi title class'ına sahip mi?</button>
+    <br>
+    <button id="btn-2">p etiketi container class'ına sahip mi?</button>
+
+    <p class="title">Lorem ipsum sit. (class="title")</p>
+
+
+    <button id="slice-1">index 2 ve sonrasının arkaplan rengini değiştir</button>
+    <button id="slice-2">index 1'den başla, index 4'e kadar yazı boyutunu değiştir</button>
+
+    <p>Lorem ipsum dolor sit amet.(index 0)</p>
+    <p>Lorem ipsum dolor sit amet.(index 1)</p>
+    <p>Lorem ipsum dolor sit amet.(index 2)</p>
+    <p>Lorem ipsum dolor sit amet.(index 3)</p>
+    <p>Lorem ipsum dolor sit amet.(index 4)</p>
+    <p>Lorem ipsum dolor sit amet.(index 5)</p>
+
+
+</body>
+
+
+
+</html>
