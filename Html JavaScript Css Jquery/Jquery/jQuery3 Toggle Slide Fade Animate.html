@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <style>
+        #box {
+            width: 100%;
+            height: 200px;
+            background-color: blueviolet;
+            margin: 10px;
+        }
+
+        button {
+            margin: 10px;
+            padding: 6px 12px;
+        }
+    </style>
+    <script>
+
+        $(function () {
+            $("#fadeIn").click(function () {
+                $("#box").fadeIn();
+            });
+
+            $("#fadeOut").click(function () {
+                $("#box").fadeOut();
+            });
+
+            $("#fadeToggle").click(function () {
+                $("#box").fadeToggle();
+            });
+
+            $("#fadeIn-3000").click(function () {
+                $("#box").fadeIn(3000);
+            });
+
+            $("#fadeOut-3000").click(function () {
+                $("#box").fadeOut(3000);
+            });
+
+            $("#fadeToggle-3000").click(function () {
+                $("#box").fadeToggle(3000);
+            });
+
+            $("#fadeTo-3000").click(function () {
+                $("#box").fadeTo(3000, 0.4);
+            });
+
+            $("#fadeIn-slow").click(function () {
+                $("#box").fadeIn("slow");
+            });
+
+            $("#fadeOut-slow").click(function () {
+                $("#box").fadeOut("slow");
+            });
+
+            $("#fadeToggle-slow").click(function () {
+                $("#box").fadeToggle("slow");
+            });
+
+            $("#fadeTo-slow").click(function () {
+                $("#box").fadeTo("slow", 0.2);
+            });
+
+
+            $("#hide").click(function () {
+                $("#box").hide();
+            });
+
+            $("#show").click(function () {
+                $("#box").show();
+            });
+
+            $("#toggle").click(function () {
+                $("#box").toggle();
+            });
+
+            $("#hide-3000").click(function () {
+                $("#box").hide(3000);
+            });
+
+            $("#show-3000").click(function () {
+                $("#box").show(3000);
+            });
+
+            $("#toggle-3000").click(function () {
+                $("#box").toggle(3000);
+            });
+
+            $("#hide-slow").click(function () {
+                $("#box").hide("slow");
+            });
+
+            $("#show-slow").click(function () {
+                $("#box").show("slow");
+            });
+
+            $("#toggle-slow").click(function () {
+                $("#box").toggle("slow");
+            });
+
+
+
+            $("#slideDown").click(function () {
+                $("#box").slideDown();
+            });
+
+            $("#slideUp").click(function () {
+                $("#box").slideUp();
+            });
+
+            $("#slideToggle").click(function () {
+                $("#box").slideToggle();
+            });
+
+            $("#slideDown-3000").click(function () {
+                $("#box").slideDown(3000);
+            });
+
+            $("#slideUp-3000").click(function () {
+                $("#box").slideUp(3000);
+            });
+
+            $("#slideToggle-3000").click(function () {
+                $("#box").slideToggle(3000);
+            });
+
+            $("#slideDown-slow").click(function () {
+                $("#box").slideDown("slow");
+            });
+
+            $("#slideUp-slow").click(function () {
+                $("#box").slideUp("slow");
+            });
+
+            $("#slideToggle-slow").click(function () {
+                $("#box").slideToggle("slow");
+            });
+
+
+
+            $("#chaining").click(function () {
+
+                $("#box")
+                    .animate({
+                        width: '100%',
+                        fontSize: '80px',
+                    })
+
+                    .fadeOut(2000)
+                    .fadeIn(2000)
+                    .animate({
+                        width: '200px',
+                        fontSize: '22px'
+                    });
+            });
+
+            $("#callback").click(function () {
+                $("#box").toggle(3000, function () {
+                    alert("Message");
+                });
+            });
+
+            $("#notCallback").click(function () {
+                $("#box").toggle(3000);
+                alert("Message");
+            });
+
+
+
+            $("#on").on({
+                mouseenter: function () {
+                    $(this).css("background-color", "#E7512F");
+                },
+                mouseleave: function () {
+                    $(this).css("background-color", "#007BFF");
+                },
+                click: function () {
+                    $(this).css("background-color", "#346712");
+                }
+            });
+
+            $("#off").on("click", function () {
+                alert("Butona Tıklandı.")
+            });
+            $("#off-disabled").click(function () {
+                $("#off").off("click");
+            });
+
+            $("#one").one("click", function () {
+                alert("Butona Tıklandı.")
+            });
+
+        });
+
+    </script>
+</head>
+
+<body>
+    <button id="on">on( ) metod</button>
+    <br /><br />
+    <button id="off">off( ) metod</button>
+    <button id="off-disabled">İptal</button>
+    <br /><br />
+    <button id="one">one( ) metod</button>
+
+
+    <button id="chaining">Click</button>
+
+    <button id="callback">Callback (+)</button>
+    <button id="notCallback">Callback (-)</button>
+    <div id="box">Hello World</div>
+
+    <button id="fadeIn">fadeIn( )</button>
+    <button id="fadeOut">fadeOut( )</button>
+    <button id="fadeToggle">fadeToggle( )</button>
+    <button id="fadeIn-3000">fadeIn(3000)</button>
+    <button id="fadeOut-3000">fadeOut(3000)</button>
+    <button id="fadeToggle-3000">fadeToggle(3000)</button>
+    <button id="fadeTo-3000">fadeTo(3000,0.4)</button>
+    <button id="fadeIn-slow">fadeIn("slow")</button>
+    <button id="fadeOut-slow">fadeOut("slow")</button>
+    <button id="fadeToggle-slow">fadeToggle("slow")</button>
+    <button id="fadeTo-slow">fadeTo("slow",0.2)</button>
+
+    <button id="show">Show( )</button>
+    <button id="hide">Hide( )</button>
+    <button id="toggle">Toggle( )</button>
+    <button id="show-3000">Show(3000)</button>
+    <button id="hide-3000">Hide(3000)</button>
+    <button id="toggle-3000">Toggle(3000)</button>
+    <button id="show-slow">Show("slow")</button>
+    <button id="hide-slow">Hide("slow")</button>
+    <button id="toggle-slow">Toggle("slow")</button>
+
+    <button id="slideDown">slideDown( )</button>
+    <button id="slideUp">slideUp( )</button>
+    <button id="slideToggle">slideToggle( )</button>
+    <button id="slideDown-3000">slideDown(3000)</button>
+    <button id="slideUp-3000">slideUp(3000)</button>
+    <button id="slideToggle-3000">slideToggle(3000)</button>
+    <button id="slideDown-slow">slideDown("slow")</button>
+    <button id="slideUp-slow">slideUp("slow")</button>
+    <button id="slideToggle-slow">slideToggle("slow")</button>
+
+
+
+
+
+
+</body>
+
+</html>

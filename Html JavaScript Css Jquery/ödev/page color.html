@@ -1,0 +1,142 @@
+<html>
+
+<head>
+
+  <style>
+    body {
+      background-color: yellow;
+    }
+
+    p {
+      background-color: yellow;
+      color: gray;
+    }
+
+    tr {
+      color: black;
+    }
+
+    tr:nth-child(even) {
+      background-color: red;
+    }
+
+    h1 {
+      background-color: #87ab3e;
+    }
+  </style>
+
+
+
+
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin-right: 0px;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    .col-25 {
+      float: left;
+      width: 25%;
+    }
+
+    .col-75 {
+      float: left;
+      width: 75%;
+    }
+
+    .row-50 {
+      float: left;
+      width: 50%;
+    }
+  </style>
+</head>
+
+<body id="bdy">
+
+  <h2>Ürün Kayıt</h2>
+  <div class="row">
+    <div class="row-50">
+      <form>
+        <div class="row">
+          <div class="col-25">First Name</div>
+          <div class="col-75">
+            <input type="text" class="txt">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">Last Name</div>
+          <div class="col-75">
+            <input type="text" class="txt">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">Quantity</div>
+          <div class="col-75">
+            <input type="text" class="txt" id="txtQ">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">Price</div>
+          <div class="col-75">
+            <input type="text" class="txt" id="txtP">
+          </div>
+        </div>
+        <div class="row">
+          <button type="button" onclick="deneme()">hesapla</button>
+        </div>
+
+        <div class="row">
+          <div class="col-25">Price</div>
+          <div class="col-75">
+            <input type="text" class="txt" id="Price">
+          </div>
+        </div>
+      </form>
+
+    </div>
+    <div class="row-50">
+      <img src="images.jpg" />
+
+    </div>
+    <a href="page2.html">İlerle<a />
+
+      <button id="changeRed">galta saray </button>
+      <button id="changeBlue">fener bahçe </button>
+
+
+  </div>
+  <script>
+
+
+
+    function deneme() {
+      var x, y;
+      x = parseInt(document.getElementById("txtQ").value);
+      y = parseInt(document.getElementById("txtP").value);
+      //alert(y + x);
+
+      var top = x + y;
+      document.getElementById("Price").value = top;
+    }
+
+
+
+
+    document.getElementById("changeBlue").onclick = function () {
+      document.getElementById("bdy").style.backgroundColor = 'BLUE';
+    }
+    document.getElementById("changeRed").onclick = function () {
+      document.getElementById("bdy").style.backgroundColor = 'red';
+    }
+  </script>
+
+
+
+</body>
+
+</html>

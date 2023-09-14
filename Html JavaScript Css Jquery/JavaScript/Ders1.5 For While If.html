@@ -1,0 +1,117 @@
+<html>
+
+<body>
+    <p id="demo5"></p>
+    <button onclick="Selamla()">Selamla</button>
+    <p id="demo6"></p>
+    <p id="demo7"></p>
+    <p id="demo8"></p>
+    <p id="demo9"></p>
+    <p id="demo10"></p>
+    <p id="demo11"></p>
+    <p id="demo12"></p>
+
+    <input id="message" />
+    <button onclick="trycatche()">try catche</button>
+    <p id="demo13"></p>
+
+    <script>
+          //if else
+        function Selamla() {
+            var greeting;
+            var time = new Date().getHours();
+            if (time < 10) {
+                greeting = "Good morning";
+            }
+            else if (time < 20) {
+                greeting = "Good day";
+            } else {
+                greeting = "Good evening";
+            }
+            document.getElementById("demo5").innerHTML = greeting;
+        }
+
+        //switch case
+        var day;
+        switch (new Date().getDay()) {
+            case 0: day = "Sunday"; break;
+            case 1: day = "Monday"; break;
+            case 2: day = "Tuesday"; break;
+            case 3: day = "Wednesday"; break;
+            case 4: day = "Thursday"; break;
+            case 5: day = "Friday"; break;
+            case 6: day = "Saturday"; break;
+        }
+        document.getElementById("demo6").innerHTML = "Today is " + day;
+
+        //for
+        var cars = ["BMW", "Volvo", "Saab", "Ford"];
+        var i;
+        for (i = 0, l = cars.length, text = ""; i < l; i++) {
+            text += cars[i] + "<br>";
+        }
+        document.getElementById("demo7").innerHTML = text;
+
+        //while
+        var text = "";
+        var i = 0;
+        while (i < 10) {
+            text += "<br>The number is " + i;
+            i++;
+        }
+        document.getElementById("demo8").innerHTML = text;
+
+        //do while
+        var text = ""
+        var i = 0;
+        do {
+            text += "<br>The number is " + i;
+            i++;
+        }
+        while (i < 10)
+        document.getElementById("demo9").innerHTML = text;
+
+        //break continue
+        var text = "";
+        var i;
+        for (i = 0; i < 10; i++) {
+            if (i === 3) { break; } // continue yazıp çalıştır.
+            text += "The number is " + i + "<br>";
+        }
+        document.getElementById("demo10").innerHTML = text;
+
+        //try catche
+        try {
+            adddlert("Welcome guest!");
+        }
+        catch (err) {
+            document.getElementById("demo11").innerHTML = err.message;
+        }
+
+        //try catche finally
+        function trycatche() {
+            var message, x;
+            message = document.getElementById("demo12");
+            message.innerHTML = "";
+            x = document.getElementById("message").value;
+            try {
+                x = Number(x); 
+                if (x == "")
+                    throw "is empty";
+                 if (isNaN(x))
+                    throw "is not a number"; 
+                if (x > 10)
+                    throw "is too high"; 
+                if (x < 5) throw "is too low";
+            }
+            catch (err) {
+                message.innerHTML = "Input " + err;
+            }
+            finally {
+                document.getElementById("demo12").value = "";
+            }
+        }
+    </script>
+</body>
+
+</html>

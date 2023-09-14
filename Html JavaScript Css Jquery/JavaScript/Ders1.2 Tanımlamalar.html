@@ -1,0 +1,73 @@
+<html>
+
+<body>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+    <p id="demo4"></p>
+    <p id="demo5"></p>
+    <p id="demo6"></p>
+    <p id="demo7"></p>
+    <p id="demo8"></p>
+    <p id="demo9"></p>
+
+
+    \' single quote <br>
+    \" double quote<br>
+    \\ backslash<br>
+    \n new line<br>
+    \t tab<br>
+    \b backspace<br>
+
+
+    <p id="demo10"></p>
+    <p id="demo11"></p>
+    <p id="demo12"></p>
+    <p id="demo13"></p>
+    <script>
+        var x = ""; // Now x is undefined
+        document.getElementById("demo7").innerHTML = typeof x;
+        var x = 5; // Nsow x is a Number
+        document.getElementById("demo1").innerHTML = x;
+        var x = "John"; // Now x is a String
+        document.getElementById("demo2").innerHTML = x;
+
+        var x1 = 34.00;
+        var x2 = 34;
+        var y = 123e5;
+        var z = 123e-5;
+        document.getElementById("demo3").innerHTML = x1 + "<br>" + x2 + "<br>" + y + "<br>" + z
+
+        var cars = ["Saab", "Volvo", "BMW"];
+        document.getElementById("demo4").innerHTML = cars[0] + " " + cars[1] + " " + cars[2];
+
+        var person = {
+            firstName: "John",
+            lastName: "Doe",
+            age: 50,
+            eyeColor: "blue"
+        };
+        document.getElementById("demo5").innerHTML = person.firstName + " is " + person.age + " years old.";
+
+        document.getElementById("demo6").innerHTML =
+            typeof "john" + " " +
+            typeof 3.14 + " " +
+            typeof false + " " +
+            typeof [1, 2, 3, 4] + " " +
+            typeof { name: 'john', age: 34 };
+
+        var answer1 = "It's alright";
+        var answer2 = "He is called 'Johnny'";
+        var answer3 = 'He is called "Johnny"';
+        document.getElementById("demo8").innerHTML = answer1 + "<br>" + answer2 + "<br>" + answer3
+
+        var txt = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        document.getElementById("demo9").innerHTML = txt.length;
+
+        var x = 'It\'s alright';
+        var y = "We are the so-called \"Vikings\" from the north.";
+        document.getElementById("demo10").innerHTML = x + "<br>" + y;
+    </script>
+</body>
+
+</html>

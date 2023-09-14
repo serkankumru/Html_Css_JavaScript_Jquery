@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Reads the XML data using JavaScript</title>
+
+  <style>
+    tr:nth-child(even) {
+      background-color: #469536;
+    }
+
+    table,
+    td,
+    th {
+      border: 1px solid black;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th {
+      background-color: #b7d5ac;
+    }
+  </style>
+
+  <script>
+    function loadXMLDoc() {
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function () {
+
+        if (this.readyState == 4 && this.status == 200) {
+          empDetails(this);
+        }
+      };
+      xmlhttp.open("GET", "messages.xml", true);
+      xmlhttp.send();
+    }
+    var messages = new Array();
+
+    function empDetails(xml) {
+      var i;
+      var xmlDoc = xml.responseXML;
+      var table = `<tr><th>to</th><th>from</th><th>heading</th><th>body</th></tr>`;
+      var x = xmlDoc.getElementsByTagName("note");
+
+      // Start to fetch the data by using TagName 
+      for (i = 0; i < x.length; i++) {
+
+        var to = x[i].getElementsByTagName("to")[0].childNodes[0].nodeValue;
+        var from = x[i].getElementsByTagName("from")[0].childNodes[0].nodeValue;
+        var heading = x[i].getElementsByTagName("heading")[0].childNodes[0].nodeValue;
+        var body = x[i].getElementsByTagName("body")[0].childNodes[0].nodeValue;
+
+        table += "<tr><td>" + to + "</td><td>" + from + "</td><td>" + heading + "</td><td>" + body + "</td></tr>";
+        messages[i] = new Array(to, from , + heading, body);
+      }
+      // Print the xml data, in table form
+      document.getElementById("id").innerHTML = table;      
+    }
+    function getlist(){
+      for (var i = 0; i <= messages.length; i++) {
+        for (var j = 0; j <4; j++) {
+          document.write(messages[i][j] + " ");
+        }
+        document.write("<br />");
+      }
+    }
+
+  </script>
+</head>
+
+<body>
+
+  <button type="button" onclick="loadXMLDoc()">
+    Get
+  </button>
+  <button type="button" onclick="getlist()">
+    Get List
+  </button>
+
+  <br><br>
+  <table id="id" border="1"></table>
+  <p id="asd"></p>
+</body>
+
+</html>

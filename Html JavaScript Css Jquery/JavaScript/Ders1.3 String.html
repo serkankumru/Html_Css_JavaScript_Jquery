@@ -1,0 +1,67 @@
+<html>
+
+<body>
+
+    <p id="demo1">Please locate where 'locate' occurs!</p>
+    <button onclick="myFunction()">Try it</button>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+    <p id="demo4"></p>
+    <p id="demo5"></p>
+    <p id="demo6"></p>
+    <button onclick="replace()">Replace</button>
+    <button onclick="buyuk()">Uppler</button>
+    <button onclick="kucuk()">Lower</button>
+    <p id="demo7"></p>
+    <p id="demo8"></p>
+    <p id="demo9">a,b,c,d,e,f</p>
+    <button onclick="split()">Split</button>
+    <script>
+        function myFunction() {
+            var str = document.getElementById("demo1").innerHTML;
+            var pos1 = str.indexOf("locate");
+            var pos2 = str.lastIndexOf("locate");
+            var pos3 = str.search("locate");
+            document.getElementById("demo1").innerHTML = "ilk " + pos1 + " son " + pos2 + " arama " + pos3;
+        }
+        var str = "Apple, Banana, Kiwi";
+        document.getElementById("demo2").innerHTML = str.slice(7, 13);
+        document.getElementById("demo3").innerHTML = str.slice(7);
+        document.getElementById("demo4").innerHTML = str.slice(-12);
+        document.getElementById("demo5").innerHTML = str.substring(7, 13);
+
+        function replace() {
+            var str = document.getElementById("demo1").innerHTML;
+            var txt = str.replace("locate", "W3Schools");
+            document.getElementById("demo6").innerHTML = txt;
+        }
+
+        function buyuk() {
+            var text = document.getElementById("demo6").innerHTML;
+            document.getElementById("demo6").innerHTML = text.toUpperCase();
+        }
+        function kucuk() {
+            var text = document.getElementById("demo6").innerHTML;
+            document.getElementById("demo6").innerHTML = text.toLowerCase();
+        }
+
+        var text1 = "Hello";
+        var text2 = "World!"
+        document.getElementById("demo7").innerHTML = text1.concat(" ", text2, " ", str);
+        document.getElementById("demo8").innerHTML = text1.charAt(0);
+
+        function split() {
+            var str = document.getElementById("demo9").innerHTML;
+            var arr = str.split(",");
+            var text = "";
+            var i;
+            for (i = 0; i < arr.length; i++) {
+                text += arr[i] + "<br>";
+            }
+            document.getElementById("demo9").innerHTML = text;
+        }
+
+    </script>
+</body>
+
+</html>

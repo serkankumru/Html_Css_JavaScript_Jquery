@@ -1,0 +1,95 @@
+<html>
+
+<head>
+
+  <script>
+
+    var x = Document.getElementById("txtQ").value;
+    var y = Document.getElementById("txtQ").value;
+
+    var top = x + y;
+
+
+    document.getElementById("Price").value = top;
+
+  </script>
+
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin-right: 0px;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    .col-25 {
+      float: left;
+      width: 25%;
+    }
+
+    .col-75 {
+      float: left;
+      width: 75%;
+    }
+
+    .row-50 {
+      float: left;
+      width: 50%;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Ürün Kayıt</h2>
+  <div class="row">
+    <div class="row-50">
+      <form>
+        <div class="row">
+          <div class="col-25">First Name</div>
+          <div class="col-75">
+            <input type="text" id="txtQ">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">Last Name</div>
+          <div class="col-75">
+            <input type="text" id="txtP">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">Quantity</div>
+          <div class="col-75">
+            <input type="text">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">Price</div>
+          <div class="col-75">
+            <input type="text">
+          </div>
+        </div>
+        <div class="row">
+          <input type="button" value="hesapla">
+        </div>
+
+        <div class="row">
+          <div class="col-25">Price</div>
+          <div class="col-75">
+            <input type="text" id="Price">
+          </div>
+        </div>
+      </form>
+
+    </div>
+    <div class="row-50">
+      <img src="images.jpg" />
+
+    </div>
+    <a href="page2.html">İlerle<a />
+  </div>
+</body>
+
+</html>
